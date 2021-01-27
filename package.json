@@ -18,6 +18,9 @@
     "url": "https://github.com/guidesmiths/react-form-creator/issues"
   },
   "homepage": "https://github.com/guidesmiths/react-form-creator#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
