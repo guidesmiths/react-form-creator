@@ -1,0 +1,19 @@
+{
+  "name": "@guidesmiths/react-form-creator",
+  "version": "0.0.1",
+  "description": "React from creator using json schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guidesmiths/react-form-creator.git"
+  },
+  "author": "Guidesmiths",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guidesmiths/react-form-creator/issues"
+  },
+  "homepage": "https://github.com/guidesmiths/react-form-creator#readme"
+}
