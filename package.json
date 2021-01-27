@@ -2,13 +2,11 @@
   "name": "@guidesmiths/react-form-creator",
   "version": "0.0.1",
   "description": "React from creator using json schema",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint .",
-    "test": "exit 0",
-    "release:patch": "git tag -l | xargs git tag -d && changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
-    "release:minor": "git tag -l | xargs git tag -d && changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "release:major": "git tag -l | xargs git tag -d && changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags"
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "engines": {
+    "node": ">=10"
   },
   "repository": {
     "type": "git",
@@ -20,6 +18,17 @@
     "url": "https://github.com/guidesmiths/react-form-creator/issues"
   },
   "homepage": "https://github.com/guidesmiths/react-form-creator#readme",
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "release:patch": "git tag -l | xargs git tag -d && changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "release:minor": "git tag -l | xargs git tag -d && changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:major": "git tag -l | xargs git tag -d && changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags"
+  },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
@@ -34,6 +43,14 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "generate-changelog": "1.8.0",
+    "microbundle-crl": "^0.13.11",
     "prettier": "^2.2.1"
-  }
+  },
+  "dependencies": {
+    "add": "^2.0.6",
+    "react": "^17.0.1"
+  },
+  "files": [
+    "dist"
+  ]
 }
