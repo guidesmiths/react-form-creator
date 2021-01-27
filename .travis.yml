@@ -5,10 +5,10 @@ node_js:
 
 jobs:
   include:
-  - stage: test
+  - stage: test and lint
     script:
-      - npm run test:lint
-      - npm run test
+      - npm run lint --if-present
+      - npm run test --if-present
 
   - stage: aws Publish
     provider: s3
