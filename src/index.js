@@ -4,12 +4,12 @@ export const ExampleComponent = ({ text }) => {
   return (
     <div
       style={{
-        fontWeight: "bold",
+        fontWeight: 'bold',
         fontSize: 4,
-        color: "primary",
+        color: 'primary'
       }}
     >
       Example Component: {text}
     </div>
-  );
-};
+  )
+}
